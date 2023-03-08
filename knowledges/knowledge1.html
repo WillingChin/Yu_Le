@@ -11,6 +11,8 @@
 
 <!-- <script src="../jquery-3.4.1.js"></script> -->
 <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.4.1.min.js"></script>
+<script src="jquery-jtemplates.js"></script>
+
 <script src=" https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
@@ -145,7 +147,57 @@
 						</li>
 					</ul>
 				</div> -->
+				
 
+				</div>
+				<textarea id="template" class="template">
+				<div class="right-content">
+					<h3>{$T.title}</h3>
+					<img src="../images/白芷.jpg" alt="">
+					<ul class="right_item">
+						<li>
+							<span>别名：</span>
+							{$T.name}
+						</li>
+						<li>
+							<span>来源：</span>
+							{$T.origins}
+						</li>
+						<li>
+							<span>产地：</span>
+							{$T.areas}
+						</li>
+						<li>
+							<span>性味归经:</span>
+							{$T.tonad}
+						</li>
+						<br>
+						<li>
+							<span>作用功效：</span>
+							{$T.effects}
+						</li>
+					</ul>
+				</div>
+
+				<div class="left-content">
+					<ul class="left_item">
+						<li>
+							<span>药材形态:</span>
+						</li>
+						<li>
+						<span>使用方法：</span>
+							{$T.methods}
+						</li>
+						<li>
+							<span>使用注意：</span>
+							{$T.careful}
+						</li>
+						<li>
+							<span>日常食用：</span>
+							{$T.edible}
+						</li>
+					</ul>
+				</textarea>
 			</div>
 		</section>
 	</div>
@@ -153,7 +205,11 @@
 	<script src="knowledge1.js"></script>
 
 	<script>
+		var globalMenuData = [];
+
+
 		$(function () {
+
 
 			function buildMenuHtml(data){
 				var currentData = data;
@@ -164,7 +220,7 @@
 				if(currentData.info != null && currentData.info.length > 0){
 					template += '<div class="lit-menu">';
 					for(var j=0;j<currentData.info.length;j++){
-						template +='<a href="#">' + currentData.info[j] + '</a>';
+						template +='<a class="lit-menu-title" href="javascript:void(0);" >' + currentData.info[j] + '</a>';
 					}
 					template += '</div>';
 				}
@@ -204,17 +260,44 @@
 					
 					
 
-				   //给info赋值给定义好的变量
-				   var pageData=data;
-				   for(var i=0;i<data.length;i++){
+					//给info赋值给定义好的变量
+					var pageData=data;
+					for(var i=0;i<data.length;i++){
 						var currentData = data[i];
 						//menu
 						var template = buildMenuHtml(currentData);
 						$(".nav-links").append(template);
-				   }
+					}
 
-				   $(".sub-menu").not(":first").hide();
-				   bindMenuClick();
+					$(".sub-menu").not(":first").hide();
+					bindMenuClick();
+					$(".lit-menu-title").on("click",function(){
+						var title = $(this).text();
+						var isExists = 0;
+						if(globalMenuData != null && globalMenuData.length > 0){
+							for (let index = 0; index < globalMenuData.length; index++) {
+								const element = globalMenuData[index].title;
+								if(element == title){
+									isExists = 1;
+									$(".main-content").setTemplateElement("template");
+								
+									$(".main-content").processTemplate(globalMenuData[index]);
+								}//end if
+							}//end for
+						}//end if
+						if(isExists == 0){
+							$(".main-content").html("<span>数据不存在！请联系管理员录入！</span>")
+						}
+					});//end click
+				}
+			})
+
+			$.ajax({
+				url: "medicineinfo.json",//json文件位置，文件名
+				type: "GET",//请求方式为get
+				dataType: "json", //返回数据格式为json
+				success: function(data) {//请求成功完成后要执行的方法 
+					globalMenuData = data;
 				}
 			})
 		});

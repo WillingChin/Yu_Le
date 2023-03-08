@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <script type="text/javascript" src="jquery.min.js"></script>
+  <script type="text/javascript" src="jquery-jtemplates.js"></script>
+  <style type="text/css">
+    .container {
+      width: 1000px;
+      height: 600px;
+      margin: 0 auto;
+    }
+
+    .template {
+      display: none;
+    }
+
+    table {
+      background-color: #fff;
+    }
+
+    table tr th {
+      padding: 8px;
+      border-bottom: 1px solid #eee;
+    }
+
+    table tr td {
+      padding: 10px;
+      border-bottom: 1px solid #eee;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div id="result"></div>
+
+  <textarea id="template" class="template">
+      <div>部门编号：{$T.list_id}</div>
+      <div>部门负责人：{$T.name}</div>
+     <div>
+       <table>
+         <tr>
+           <th>编号</th>
+           <th>姓名</th>
+           <th>年龄</th>
+           <th>邮箱</th>
+           <th>性别</th>
+         </tr>
+
+         <!--渲染的关键句，类似于for循环-->
+         {#foreach $T.table as record}
+         <tr>
+           <td>{$T.record.id}</td>
+           <td>{$T.record.name}</td>
+           <td>{$T.record.age}</td>
+           <td>{$T.record.mail}</td>
+           <td>{$T.record.sex}</td>
+         </tr>
+         {#/for}
+         <!--渲染的关键句，类似于for循环-->
+       </table>
+     </div>
+  </textarea>
+
+
+  <div style="width: 100%;margin: 4rem 0;">------------上面是多维数组，下面是单维数组----------</div>
+
+
+  <div id="result1"></div>
+  <textarea id="template1" class="template">
+     <div>
+       <table>
+         <tr>
+           <th class="Number">编号</th>
+           <th>姓名</th>
+           <th>年龄</th>
+           <th>邮箱</th>
+           <th>性别</th>
+         </tr>
+
+         <!--渲染的关键句，类似于for循环-->
+         {#foreach $T as record}
+         <tr>
+           <td>{$T.record.id}</td>
+           <td>{$T.record.name}</td>
+           <td>{$T.record.age}</td>
+           <td>{$T.record.mail}</td>
+           <td>{$T.record.sex}</td>
+         </tr>
+         {#/for}
+         <!--渲染的关键句，类似于for循环-->
+       </table>
+     </div>
+  </textarea>
+
+
+
+</div>
+
+
+<script>
+  var data = {
+    "name": "网马伦",
+    "list_id": 89757,
+    "table": [
+      {"id": 1, "name": "Rain", "age": 22, "mail": "admin@domain.com","sex":"man"},
+      {"id": 2, "name": "皮特", "age": 24, "mail": "123456@domain.com","sex":"man"},
+      {"id": 13, "name": "卡卡", "age": 20, "mail": "112233@domain.com","sex":"man"}
+    ]
+  };
+
+  $("#result").setTemplateElement("template");
+
+  $("#result").processTemplate(data);
+
+
+
+  var table=[
+    {"id": 13, "name": "卡卡", "age": 20, "mail": "112233@domain.com","sex":"man"},
+    {"id": 4, "name": "戏戏", "age": 26, "mail": "0147@domain.com","sex":"man"},
+    {"id": 5, "name": "一揪", "age": 25, "mail": "kkw@domain.com","sex":"man"}
+  ]
+  $("#result1").setTemplateElement("template1");
+
+  $("#result1").processTemplate(table);
+
+
+
+</script>
+</body>
+</html>
