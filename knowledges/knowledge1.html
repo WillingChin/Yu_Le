@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>konwledge1</title>
+	<link rel="stylesheet" href="knowledge1.css">
+	<!-- Boxiocns CDN Link -->
+	<link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<!-- <script src="../jquery-3.4.1.js"></script> -->
+<script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.4.1.min.js"></script>
+<script src=" https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+
+<body>
+
+	<div id="app">
+		<!-- 左侧 -->
+		<div class="sidebar">
+
+			<!--左上角logo和名称-->
+			<div class="logo-details">
+				<a href="../html/index.html"><i class='bx bx-chevron-left'></i></a>
+				<span class="logo_name">中药材科普小游戏</span>
+			</div>
+
+			<!--菜单栏导航-->
+			<div class="nav-links">
+				<!--每一个菜单栏项-->
+				<div class="iocn-link">
+					<div class="main-menu"><span class="link_name">解表药</span></div>
+					<div class="sub-menu">
+						<div class="menu2">发热风寒药</div>
+						<div class="lit-menu">
+							<a href="#">白芷</a>
+							<a href="#">防风</a>
+						</div>
+					</div>
+					<div class="sub-menu">
+						<div class="menu2">发热风寒药</div>
+						<div class="lit-menu">
+							<a href="#">白芷</a>
+							<a href="#">防风</a>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+
+
+		</div>
+
+
+		<!-- 右侧 -->
+		<section class="home-section">
+			<!-- 右侧上部分 -->
+			<div class="home-content">
+				<i class='bx bx-menu'></i>
+				<!-- 搜索框 -->
+				<span class="search-box">
+					<i class='bx bx-search'></i>
+					<!--输入需要搜索的文本区域-->
+					<input type="text" class="search-text">
+				</span>
+				<!-- 个人信息 -->
+				<div class="profile">
+					<!--头像-->
+					<div class="image"><img src="../images/touxiang.jpg"></div>
+					<ul class="photo-item">
+						<li class="items"><a href="#">个人中心</a></li>
+						<li class="items"><a href="#">查看头像</a></li>
+						<li class="items"><a href="#">个人中心</a></li>
+					</ul>
+				</div>
+				<div class="login">
+					<a href="#">[登录]</a>
+				</div>
+			</div>
+
+
+			<!-- 右侧下部分 -->
+			<div class="main-content">
+				<!-- <div class="right-content">
+					<h3>白芷</h3>
+					<img src="../images/白芷.jpg" alt="">
+					<ul class="right_item">
+						<li>
+							<span>别名：</span>
+							祁白芷，禹白芷，走马芹，会白芷，香大活。
+						</li>
+						<li>
+							<span>来源：</span>
+							为伞形科植物白芷或杭白芷的干燥根。
+						</li>
+						<li>
+							<span>产地：</span>
+							主产于浙江、四川、河南、河北。
+						</li>
+						<li>
+							<span>性味归经:</span>
+
+						</li>
+						<br>
+						<li>
+							<span>作用功效：</span>
+							具有解表散寒，祛风止痛，宣通鼻窍，燥湿止带，消肿排脓的功效。常与其他药材同用，可用于感冒头痛，眉棱骨痛，鼻塞流涕，鼻鼽，鼻渊，牙痛，带下，疮疡肿痛。
+						</li>
+					</ul>
+				</div>
+
+				<div class="left-content">
+					<ul class="left_item">
+						<li>
+						
+							<span>药材形态:</span>
+
+						</li>
+						<li>
+						<span>使用方法：</span>
+						白芷多煎汁服用，也可泡酒、煮粥或煲汤用。但无论采用哪种方式，都需要按照医生的嘱咐服用。白芷煎汁内服时，常用量为3～10g。
+						白芷外用时，取适量白芷磨成细粉，外搽患处或者调敷。
+						白芷一般多入汤剂，煎汁服用，也可以制成散剂或丸剂服用。但中药材的使用须辨证论治，应在专业中医指导下使用，不可自行随意使用，更不可随意听信中药偏方和广告宣传。
+						此外，白芷也可用于日常保健，常用食用方法如下：
+						泡酒：白芷可以泡酒饮用，具有祛风燥湿、解表散寒、止痛的作用。
+						煮粥：可以将白芷磨成粉煮粥，具有清热抗感，增强自身免疫的功能。
+						</li>
+						<li>
+							<span>使用注意：</span>
+							阴虚血热者忌服。
+							用药期间需注意忌食寒凉、生冷食物、忌食辛辣油腻食物。
+							妊娠及哺乳期妇女请及时告知医生并咨询是否可用中药治疗。
+							儿童用药须在医生指导和成人监护下进行。
+
+						</li>
+						<li>
+							<span>日常食用：</span>
+							（1）川芎15g，白芷15g，鳙鱼头1个（约200g），生姜、葱、食盐、料酒等适量。
+							将川芎洗净，切片；白芷洗净切片；鳙鱼头去鳃，洗净。将药物、鱼头放入锅内，加生姜、葱、食盐、料酒、水适量。将锅置武火上煮沸，再用文火炖熟即成，食用时加味精少许。分顿喝汤。
+							（2）桃花250g，白芷30g，白酒1L。
+							桃花采自清明前后含苞初放者，与白芷同放入盛酒的瓶中，加盖密封，存放1个月，即可开封备用。每次取酒15～30mL，于空腹时饮之，每日1～2次，常饮。
+						</li>
+					</ul>
+				</div> -->
+
+			</div>
+		</section>
+	</div>
+
+	<script src="knowledge1.js"></script>
+
+	<script>
+		$(function () {
+			// 隐藏所有主标题
+			function hideMainMenu(){
+				$(".main-menu").each(function () {
+					// $(this).children(".lit-menu,.menu2").hide();
+					$(this).hide();
+				});
+			}
+			// 隐藏所有子标题
+			function hideSubMenu(){
+				$(".sub-menu").each(function () {
+					// $(this).children(".lit-menu,.menu2").hide();
+					$(this).children(".lit-menu,.menu2").hide();
+				});
+			}
+			// 构造MainMenu的tempalte
+			function buildMainMenuHtml(data){
+				var template = '<div class="main-menu"><span class="link_name">' + data.main_title + '</span></div>';
+				return template;
+			}
+
+			// 构造subMenu的tempalte
+			function buildSubMenuHtml(data){
+				debugger;
+				for(var i=0;i<data.length;i++){
+					var currentData = data[i];
+					var template = '<div class="sub-menu">'+
+						'<div class="menu2">' + currentData.name + '</div>'+
+						'<div class="lit-menu">';
+						if(currentData.info != null && currentData.info.length > 0){
+							for(var j=0;j<currentData.info.length;j++){
+								template +='<a href="#">' + currentData.info[j] + '</a>';
+							}
+						}
+						template += '</div>'+
+					'</div>';
+				}
+				debugger
+				return template;
+			}
+
+			$.ajax({
+				url: "knowledge.json",//json文件位置，文件名
+				type: "GET",//请求方式为get
+				dataType: "json", //返回数据格式为json
+				success: function(data) {//请求成功完成后要执行的方法 
+					if(data != null && data.length > 0){
+						hideMainMenu();
+						hideSubMenu();
+					}
+					
+					
+
+				   //给info赋值给定义好的变量
+				   var pageData=data;
+				   for(var i=0;i<data.length;i++){
+						var currentData = data[i];
+						//main menu
+						var mainTemplate = buildMainMenuHtml(currentData);
+						$(".iocn-link").append(mainTemplate);
+						//sub menu
+						var mainTemplate = buildSubMenuHtml(currentData.title);
+						$(".iocn-link").append(mainTemplate);
+				   }
+				}
+			})
+		});
+
+		var _index = 0;
+		function getMainTitle(result,i){
+			var temp, link;
+			var str = "";
+			// console.log(result);
+			// console.log(i);
+			str += `
+					<div class="main-menu"><span class="link_name">${result[i].main_title}</span></div>	
+			`
+			$(".iocn-link").append(str);
+		}
+
+		function getContentName(content,i){
+			console.log(content);
+			// console.log(i);
+			var str="";
+			str += `
+			<div class="menu2">${content[i].name}</div>	
+			`
+			$(".sub-menu").append(str);
+		}
+
+
+
+
+	</script>
+
+	<script>
+		let sidebar = document.querySelector(".sidebar");
+		let sidebarBtn = document.querySelector(".bx-menu");
+		// console.log(sidebarBtn);
+		sidebarBtn.addEventListener("click", () => {
+			sidebar.classList.toggle("close");
+		});
+
+
+		// 隐藏所有子标题
+		$(".sub-menu").each(function () {
+			// $(this).children(".lit-menu,.menu2").hide();
+			$(this).children(".lit-menu,.menu2").hide();
+		});
+		// 给所有main-menu添加点击事件
+		$(".main-menu").each(function () {
+			//获取点击当前main-menu标签下所有menu2子标签
+			var navConEle = $(this).siblings(".sub-menu").children(".menu2");
+			$(this).click(function () {
+				if (navConEle.css("display") != "none") {
+					//如果没有隐藏，收起
+					navConEle.slideUp(300);
+					navConEle.siblings(".lit-menu").slideUp(300);
+				} else {
+					//展开
+					navConEle.slideDown();
+				}
+			});
+			// console.log($(this));
+		});
+
+
+		// 给所有menu2添加点击事件
+		$(".menu2").each(function () {
+			//获取点击当前menu2标签下所有lit-menu子标签
+			var navConEle = $(this).parent(".sub-menu").children(".lit-menu");
+			$(this).click(function () {
+				if (navConEle.css("display") != "none") {
+					//如果没有隐藏，收起
+					navConEle.slideUp(300);
+				} else {
+					//展开
+					navConEle.slideDown();
+				}
+			});
+			// console.log($(this));
+		});
+
+
+//		左侧
+//		$(document).ready(function () {
+////			$(".link_name").on("click",function () {
+////
+////            })
+//            $.getJSON("../json/knowledge.json",function (json) {
+//                $(".link_name").html(JSON.stringify(json));
+//            })
+//        })
+
+//        $(function(){
+//            $(':input:eq(0)').click(function(){
+//                $.ajax({
+//                    url: 'http://localhost:8080/json/knowledge.json',
+//                    type: 'get',
+//                    dataType: 'json',
+//                    success: function(data){
+//                        var tbhtml = "";
+//                        for(var i = 0;i<data.length;i++){
+////                            tbhtml+="<tr><td>"+data[i].name+"</td><td>"+data[i].age+"</td><td>"+data[i].sex+"</td></tr>";
+////                            tbhtml+="<i>"+data[i].main_title+"</i>";
+//                            console.log(data[1].main_title);
+//                        }
+//                        $('.link_name').html(tbhtml);
+//
+//                    }
+//                })
+//            })
+//        })
+
+
+	</script>
+	<!--<script src="knowledge1.js"></script>-->
+	<!-- <script>
+		new Vue({
+			el: '#app',
+			data: {
+				list: { username: "aaa" },
+				lists: []
+			},
+			methods: {
+				findAll:function(){
+					var _this = this; //全局变量
+					axios.get("../json/knowledge.json")
+					.then(function(res){
+						_this.lists = res.data;
+						console.log(_this.lists);
+						console.log(_this.lists.title);
+					}).catch(function(err){
+						console.log(err);
+					})
+				}
+			},
+			created() {
+				this.findAll(); //创建完vue后调方法
+			},
+
+
+			// 当页面刷新、执行的时候运行mounted里面的代码
+			// mounted() {
+			// 	var _this = this;
+			// 	//配置接口地址
+			// 	axios.get("../json/knowledge.json")
+			// 		.then(res => {
+			// 			console.log(res.data.main_title);
+			// 			// 把返回的结果赋给lists
+			// 			this.lists = res.data;
+			// 		})
+			// }
+		})
+	</script> -->
+
+</body>
+
+</html>
