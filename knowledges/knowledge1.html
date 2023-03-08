@@ -154,45 +154,44 @@
 
 	<script>
 		$(function () {
-			// 隐藏所有主标题
-			function hideMainMenu(){
-				$(".main-menu").each(function () {
-					// $(this).children(".lit-menu,.menu2").hide();
-					$(this).hide();
-				});
-			}
-			// 隐藏所有子标题
-			function hideSubMenu(){
-				$(".sub-menu").each(function () {
-					// $(this).children(".lit-menu,.menu2").hide();
-					$(this).children(".lit-menu,.menu2").hide();
-				});
-			}
-			// 构造MainMenu的tempalte
-			function buildMainMenuHtml(data){
-				var template = '<div class="main-menu"><span class="link_name">' + data.main_title + '</span></div>';
+
+			function buildMenuHtml(data){
+				var currentData = data;
+				var info = data.info;
+				var template = '<div class="iocn-link">';
+				template +='<div class="main-menu"><span class="link_name">' + currentData.main_title + '</span></div>';
+				template += '<div class="sub-menu">';
+				if(currentData.info != null && currentData.info.length > 0){
+					template += '<div class="lit-menu">';
+					for(var j=0;j<currentData.info.length;j++){
+						template +='<a href="#">' + currentData.info[j] + '</a>';
+					}
+					template += '</div>';
+				}
+				template += '</div>';
 				return template;
+			}
+			
+			function bindMenuClick(){
+				// 给所有main-menu添加点击事件
+				$(".main-menu").each(function () {
+					//获取点击当前main-menu标签下所有menu2子标签
+					var navConEle = $(this).siblings(".sub-menu").children(".menu2");
+					$(this).click(function () {
+						var thiz = $(this).siblings(".sub-menu");
+						debugger
+						if (thiz.css("display") != "none") {
+							//如果没有隐藏，收起
+							thiz.slideUp(300);
+						} else {
+							//展开
+							thiz.slideDown();
+						}
+					});
+					// console.log($(this));
+				});
 			}
 
-			// 构造subMenu的tempalte
-			function buildSubMenuHtml(data){
-				debugger;
-				for(var i=0;i<data.length;i++){
-					var currentData = data[i];
-					var template = '<div class="sub-menu">'+
-						'<div class="menu2">' + currentData.name + '</div>'+
-						'<div class="lit-menu">';
-						if(currentData.info != null && currentData.info.length > 0){
-							for(var j=0;j<currentData.info.length;j++){
-								template +='<a href="#">' + currentData.info[j] + '</a>';
-							}
-						}
-						template += '</div>'+
-					'</div>';
-				}
-				debugger
-				return template;
-			}
 
 			$.ajax({
 				url: "knowledge.json",//json文件位置，文件名
@@ -200,8 +199,7 @@
 				dataType: "json", //返回数据格式为json
 				success: function(data) {//请求成功完成后要执行的方法 
 					if(data != null && data.length > 0){
-						hideMainMenu();
-						hideSubMenu();
+						$(".iocn-link").remove();
 					}
 					
 					
@@ -210,13 +208,13 @@
 				   var pageData=data;
 				   for(var i=0;i<data.length;i++){
 						var currentData = data[i];
-						//main menu
-						var mainTemplate = buildMainMenuHtml(currentData);
-						$(".iocn-link").append(mainTemplate);
-						//sub menu
-						var mainTemplate = buildSubMenuHtml(currentData.title);
-						$(".iocn-link").append(mainTemplate);
+						//menu
+						var template = buildMenuHtml(currentData);
+						$(".nav-links").append(template);
 				   }
+
+				   $(".sub-menu").not(":first").hide();
+				   bindMenuClick();
 				}
 			})
 		});
@@ -261,22 +259,6 @@
 		$(".sub-menu").each(function () {
 			// $(this).children(".lit-menu,.menu2").hide();
 			$(this).children(".lit-menu,.menu2").hide();
-		});
-		// 给所有main-menu添加点击事件
-		$(".main-menu").each(function () {
-			//获取点击当前main-menu标签下所有menu2子标签
-			var navConEle = $(this).siblings(".sub-menu").children(".menu2");
-			$(this).click(function () {
-				if (navConEle.css("display") != "none") {
-					//如果没有隐藏，收起
-					navConEle.slideUp(300);
-					navConEle.siblings(".lit-menu").slideUp(300);
-				} else {
-					//展开
-					navConEle.slideDown();
-				}
-			});
-			// console.log($(this));
 		});
 
 
